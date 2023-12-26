@@ -1,30 +1,33 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="grid grid-cols-3 m-4 gap-2">
+    <div v-for="card in card_data" :key="card.key">
+      <ShowcaseCard :name="card.name" :chef="card.chef" :imgPath="card.imgPath" />
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+  <script setup>
+  import ShowcaseCard from './components/ShowcaseCard.vue';
+
+  const card_data = [{
+    key: 1,
+    name: "Choco ball with pistachio",
+    chef: "By chef Eric",
+    imgPath: "src/assets/img/showcase1.jpg"
+  },
+  {
+    key: 2,
+    name: "Choco ball with pistachio",
+    chef: "By chef Patesrie",
+    imgPath: "src/assets/img/showcase2.jpg"
+  },
+  {
+    key: 3,
+    name: "Choco ball with pistachio",
+    chef: "By chef Donuts",
+    imgPath: "src/assets/img/showcase3.jpg"
+  },
+]
+  </script>
+
